@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ARMY Scrapbook</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdf6ff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #intro {
+      background-color: #6a0dad;
+      color: white;
+      font-size: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      opacity: 0;
+      animation: fadeIn 3s forwards;
+    }
+
+    #recap {
+      display: none; /* Initially hidden */
+      padding: 2rem;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    .year-section {
+      background-color: #fff;
+      border-left: 6px solid #b19cd9;
+      margin: 2rem 0;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 1rem;
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: fadeInRight 1.5s forwards;
+    }
+
+    @keyframes fadeInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="intro">
+    <h1>Finally the wait is over! 2025 is here! BTS is back!</h1>
+    <button class="button" onclick="showRecap()">Go to Recap</button>
+  </div>
+
+  <audio id="intro-sound" autoplay>
+    <source src="path-to-spine-breaker-or-dynamite.mp3" type="audio/mpeg">
+  </audio>
+
+  <div id="recap">
+    <h1>📖 ARMY Scrapbook</h1>
+    <h2>Recap: 2022 to 2025</h2>
+
+    <div class="year-section">
+      <h3>📅 2022</h3>
+      <ul>
+        <li>June – 9th Festa: *Yet to Come* MV + anthology album</li>
+        <li>Announcement of solo chapter begins</li>
+        <li>Emotional dinner video with heartfelt talks</li>
+        <li>J-Hope launches solo with *Jack In The Box*</li>
+      </ul>
+    </div>
+
+    <div class="year-section">
+      <h3>📅 2023</h3>
+      <ul>
+        <li>Solo debuts from RM, Jin, Jimin, SUGA, V, Jungkook</li>
+        <li>Jin starts enlistment – first member to go</li>
+        <li>ARMY supports solo eras and stays united</li>
+        <li>Creative freedom and personal storytelling bloom</li>
+      </ul>
+    </div>
+
+    <!-- More years follow the same format -->
+
+    <div class="army-letter">
+      “You never walked alone. Even when the path was hard,  
+      you carried each other and us with love.  
+      Thank you for growing, for staying, for returning.  
+      We’ll always be here.” — ARMY 💜
+    </div>
+  </div>
+
+  <script>
+    function showRecap() {
+      document.getElementById("intro").style.display = "none"; // Hide intro
+      document.getElementById("recap").style.display = "block"; // Show recap
+    }
+  </script>
+
+</body>
+</html>
