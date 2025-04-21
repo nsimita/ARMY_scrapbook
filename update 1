@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ARMY Scrapbook</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdf6ff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .page {
+      display: none;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 2rem;
+    }
+
+    #page1, #page2, #page3 {
+      display: none;
+    }
+
+    #page1 {
+      background-color: #6a0dad;
+      color: white;
+      font-size: 2rem;
+      animation: fadeIn 3s forwards;
+    }
+
+    #page2 {
+      background-color: #ffefff;
+      color: #5a005a;
+      font-size: 1.5rem;
+    }
+
+    #page3 {
+      background-color: #fff0f5;
+      color: #333;
+      overflow-y: scroll;
+      padding-bottom: 3rem;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .button {
+      margin-top: 20px;
+      padding: 10px 25px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      border-radius: 10px;
+    }
+
+    .year-section {
+      background-color: #fff;
+      border-left: 6px solid #b19cd9;
+      margin: 2rem 0;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 1rem;
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: fadeInRight 1.5s forwards;
+      animation-delay: 0.3s;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeInRight {
+      0% { opacity: 0; transform: translateX(-50px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .army-letter {
+      margin-top: 2rem;
+      font-style: italic;
+      background-color: #fef6ff;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 -->
+  <div id="page1" class="page" style="display: flex;">
+    <h1>Finally the wait is over! 2025 is here! BTS is back!</h1>
+    <button class="button" onclick="goToPage('page2')">Next</button>
+    <audio id="bg-music" autoplay loop>
+      <source src="path-to-your-music.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div id="page2" class="page">
+    <h2>“Three years, countless memories.”</h2>
+    <p>“Shall we turn the pages together?”</p>
+    <button class="button" onclick="goToPage('page3')">Next</button>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div id="page3" class="page">
+    <h1>📖 ARMY Scrapbook</h1>
+    <h2>Recap: 2022 to 2025</h2>
+
+    <div class="year-section">
+      <h3>📅 2022</h3>
+      <ul>
+        <li>June – 9th Festa: *Yet to Come* MV + anthology album</li>
+        <li>Announcement of solo chapter begins</li>
+        <li>Emotional dinner video with heartfelt talks</li>
+        <li>J-Hope launches solo with *Jack In The Box*</li>
+      </ul>
+    </div>
+
+    <div class="year-section">
+      <h3>📅 2023</h3>
+      <ul>
+        <li>Solo debuts from RM, Jin, Jimin, SUGA, V, Jungkook</li>
+        <li>Jin starts enlistment – first member to go</li>
+        <li>ARMY supports solo eras and stays united</li>
+        <li>Creative freedom and personal storytelling bloom</li>
+      </ul>
+    </div>
+
+    <div class="year-section">
+      <h3>📅 2024</h3>
+      <ul>
+        <li>More members enlist, more letters, more waiting</li>
+        <li>ARMYs cheer through solo tours, interviews, and covers</li>
+        <li>Proof of loyalty, love, and belief in the promise</li>
+      </ul>
+    </div>
+
+    <div class="year-section">
+      <h3>📅 2025</h3>
+      <ul>
+        <li>They are finally back. Together. As 7. As BTS.</li>
+        <li>Comeback announcement shocks the world</li>
+        <li>ARMYs all around the globe celebrate their return</li>
+      </ul>
+    </div>
+
+    <div class="army-letter">
+      “You never walked alone. Even when the path was hard,  
+      you carried each other and us with love.  
+      Thank you for growing, for staying, for returning.  
+      We’ll always be here.” — ARMY 💜
+    </div>
+  </div>
+
+  <script>
+    function goToPage(pageId) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(p => p.style.display = 'none');
+      document.getElementById(pageId).style.display = 'flex';
+    }
+
+    // Handle audio autoplay across browsers
+    window.addEventListener('click', function () {
+      const music = document.getElementById('bg-music');
+      music.play().catch(() => {});
+    }, { once: true });
+  </script>
+
+</body>
+</html>
