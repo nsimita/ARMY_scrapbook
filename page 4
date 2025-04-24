@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2022 – J-Hope Solo Era</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      color: #d35400;
+    }
+
+    .event {
+      background-color: #ffffff;
+      border-left: 6px solid #f39c12;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      width: 80%;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    iframe {
+      margin-top: 1rem;
+      border-radius: 12px;
+      max-width: 100%;
+    }
+
+    .nav-buttons {
+      margin-top: 2rem;
+    }
+
+    .nav-buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 1rem;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #ff85c1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔥 2022 – J-Hope’s Solo Era</h1>
+
+  <div class="event">
+    <h2>💿 Jack in the Box – The Solo Breakthrough</h2>
+    <p>In July 2022, J-Hope released his first solo album <strong>“Jack in the Box”</strong>, showcasing his raw thoughts, bold creativity, and a darker, more experimental sound.</p>
+    <p>The title track <strong>“Arson”</strong> lit up the stage with its fiery concept, especially the iconic “Let’s burn” moment that left a mark in every ARMY’s heart.</p>
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/VIDEO_ID?start=START_TIMESTAMP" 
+        title="J-Hope - Arson (Official MV)" frameborder="0" allowfullscreen> </iframe>
+
+  </div>
+
+  <div class="event">
+    <h2>🎤 July 31: Lollapalooza Performance</h2>
+    <p>J-Hope made history as the <strong>first Korean artist</strong> to headline Lollapalooza. His explosive set delivered intensity, charisma, and his powerful solo identity.</p>
+    <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/6ak5yOmj8W8?start=840" 
+            title="J-Hope Lollapalooza Performance" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="nav-buttons">
+    <button onclick="location.href='page3.html'">⬅ Previous</button>
+    <button onclick="location.href='page5.html'">Next ➡</button>
+  </div>
+
+</body>
+</html>
