@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2022 Recap – ARMY Scrapbook</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdf6ff;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      color: #6a0dad;
+    }
+
+    .event {
+      background-color: #ffffff;
+      border-left: 6px solid #b19cd9;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      width: 80%;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    iframe {
+      margin-top: 1rem;
+      border-radius: 12px;
+      max-width: 100%;
+    }
+
+    .nav-buttons {
+      margin-top: 2rem;
+    }
+
+    .nav-buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 1rem;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #ff85c1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📅 2022 — The Beginning of a New Chapter</h1>
+
+   
+<div class="event">
+  <h2>🗓️ June 10–14: Proof Album & FESTA Dinner</h2>
+  <p>BTS released the <strong>“Proof”</strong> album with the emotional track <em>“Yet to Come”</em>, marking the start of a new chapter. </p>
+  
+  <!-- Yet To Come MV (Starts at 1:16) -->
+  <iframe width="560" height="315" 
+          src="https://www.youtube.com/embed/kXpOEzNZ8hQ?start=76" 
+          title="Yet to Come MV" frameborder="0" allowfullscreen></iframe>
+
+  <p>During the <strong>FESTA Dinner</strong>, they spoke candidly about their journey, love for ARMY, and future as solo and group artists — not disbanding, just evolving.</p>
+  
+  <!-- BTS FESTA Dinner 2022 (Starts at 57:35) -->
+  <iframe width="560" height="315" 
+          src="https://www.youtube.com/embed/1t0iJ7F_k9Q?start=3455" 
+          title="BTS FESTA Dinner 2022" frameborder="0" allowfullscreen></iframe>
+
+ 
+</div>
+
+
+  <!-- Navigation Buttons -->
+  <div class="nav-buttons">
+    <button onclick="location.href='page2.html'">⬅ Previous</button>
+    <button onclick="location.href='page4.html'">Next ➡</button>
+  </div>
+
+</body>
+</html>
