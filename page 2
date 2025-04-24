@@ -54,7 +54,7 @@
 <body>
 
   <h1>How did we pass these years?</h1>
-  <h2>Let’s turn the pages and see how we stayed together 💜</h2>
+  <h2>Let’s turn the pages and see... 💜</h2>
 
   <div class="buttons">
     <button class="button" onclick="goBack()">Previous</button>
