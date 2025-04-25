@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2022 – Yet to Come in Busan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fef4ff;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      color: #6a0dad;
+    }
+
+    .event {
+      background-color: #ffffff;
+      border-left: 6px solid #dda0dd;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      width: 80%;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .event img.sticker {
+      width: 80px;
+      margin: 10px;
+    }
+
+    iframe {
+      margin-top: 1rem;
+      border-radius: 12px;
+      max-width: 100%;
+    }
+
+    .nav-buttons {
+      margin-top: 2rem;
+    }
+
+    .nav-buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 1rem;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #ff85c1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📍 Yet to Come in BUSAN – October 2022</h1>
+
+  <div class="event">
+    <p><strong>BTS returned to the stage in Busan</strong> for a special concert filled with joy, emotion, and unforgettable performances.</p>
+
+    <!-- BTS stickers -->
+    <div>
+      <img src="C:\Users\Dell\Downloads\676e314de53c447208bb08718f94f663.jpg" class="sticker" alt="BTS sticker">
+      <img src="C:\Users\Dell\Downloads\050dce1327b59236c56d771dcaa67aee.jpg" class="sticker" alt="BTS sticker">
+      <!-- Add more stickers as needed -->
+    </div>
+
+    <!-- Yet to Come in Busan Video -->
+    <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/dGmzWG-dYoo" 
+            title="Yet to Come in Busan" frameborder="0" allowfullscreen></iframe>
+
+    <h3>🔥 Surprise Performance: Run BTS</h3>
+    <p>
+      And just when we thought the night couldn't get any better…  
+      BTS surprised us with a <strong>powerful live performance of "Run BTS"</strong>!  
+      The energy, the synchronization, the FIRE — it reminded everyone that no matter the chapter, BTS is always at their best.  
+      A legendary stage that made every ARMY jump, cheer, and cry at the same time!
+    </p>
+
+    <!-- Run BTS performance video (starts at 270 seconds = 4 min 30 sec) -->
+    <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/XigGbzte8Wg?start=270" 
+            title="Run BTS Performance" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="nav-buttons">
+    <button onclick="location.href='page4.html'">⬅ Previous</button>
+    <button onclick="location.href='page6.html'">Next ➡</button>
+  </div>
+
+</body>
+</html>
