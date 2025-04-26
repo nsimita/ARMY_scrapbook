@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARMY Scrapbook</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ff8e8e, #e6c1f2);
+    }
+    .page {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      text-align: center;
+      padding: 40px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .page.active {
+      display: block;
+      opacity: 1;
+    }
+    .button-container {
+      margin-top: 30px;
+    }
+    .nav-btn {
+      padding: 12px 24px;
+      background: #ff80ab;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .nav-btn:hover {
+      background: #ff4081;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    h1, h2, h3 {
+      margin-top: 20px;
+      color: #ffffff;
+      animation: fadeIn 1s ease-out;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    img, video {
+      max-width: 80%;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      opacity: 0;
+      animation: fadeInImage 1.5s ease-out forwards;
+    }
+    @keyframes fadeInImage {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    #bg-music {
+      display: none;
+    }
+    .message {
+      font-size: 18px;
+      color: #fff;
+      margin-top: 15px;
+      opacity: 0;
+      animation: fadeInMessage 1s ease-out forwards;
+    }
+    @keyframes fadeInMessage {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Page 1: Intro -->
+<div class="page active" id="page1">
+  <h1>Finally the wait is over! 2025 is here! BTS is back!</h1>
+  <img src="C:\Users\Dell\Documents\ARMY_scrapbook\BTS_group1.png" alt="Intro Image">
+  <audio id="bg-music" src="path-to-your-music.mp3" autoplay loop></audio>
+  <p class="message">The excitement, the anticipation, and the joy of a new era with BTS!</p>
+  <div class="button-container">
+    <button class="nav-btn" onclick="nextPage()">Next</button>
+  </div>
+</div>
+
+<!-- Page 2: How we passed -->
+<div class="page" id="page2">
+  <h2>How we passed these years?</h2>
+  <h3>Let's go and see 💜</h3>
+  <img src="C:\Users\Dell\Documents\ARMY_scrapbook\BTS)grp2.png" alt="Memories Image">
+  <p class="message">In these years, we experienced countless memories and moments that made us stronger together.</p>
+  <div class="button-container">
+    <button class="nav-btn" onclick="prevPage()">Previous</button>
+    <button class="nav-btn" onclick="nextPage()">Next</button>
+  </div>
+</div>
+
+<!-- Page 3: 2022 - Proof Album + Festa Dinner + Missing Events -->
+<div class="page" id="page3">
+  <h2>2022 Memories</h2>
+  <h3>Proof Album Release</h3>
+  <video src="https://youtu.be/kXpOEzNZ8hQ?si=hBrMn9HJfv6XTuP0" controls></video>
+   
+  <p class="message"> BTS released the <strong>“Proof”</strong> album with the emotional track <em>“Yet to Come”</em>, marking the start of a new chapter..</p>
+
+  <h3>Festa Dinner 2022</h3>
+  <video src="path-to-festa-dinner-video.mp4" controls></video>
+  <p class="message"><strong>FESTA Dinner</strong>, they spoke candidly about their journey, love for ARMY, and future as solo and group artists — not disbanding, just evolving.
+  
+   <!-- J-Hope's Solo Journey - Jack in the Box -->
+  <h3>J-Hope's Solo Journey - Jack in the Box</h3>
+  <video src="path-to-jhope-jack-in-the-box-video.mp4" controls></video>
+  <p class="message">J-Hope launched his solo era with "Jack in the Box," a bold new chapter of his artistry.</p>
+
+  <!-- J-Hope's Lollapalooza Performance -->
+  <h3>J-Hope's Lollapalooza Performance</h3>
+  <video src="path-to-jhope-lollapalooza-video.mp4" controls></video>
+  <p class="message">J-Hope made history at Lollapalooza, performing with his unique energy and passion.</p>
+
+  
+   <!-- Yet to Come in Busan Concert -->
+  <h3>Yet to Come in Busan Concert</h3>
+  <video src="path-to-yet-to-come-busan-video.mp4" controls></video>
+  <p class="message">BTS reunited for the "Yet to Come in Busan" concert, showing us that the best is still to come.</p>
+
+  
+  <h3>Astronaut by Jin</h3>
+  <video src="path-to-astronaut-performance.mp4" controls></video>
+  <p class="message">Jin’s voice shining in this magical collaboration with Coldplay.</p>
+
+ <h3>Jin - The Astronaut (Live with Coldplay)</h3>
+  <video id="jin-coldplay-video" src="path-to-jin-coldplay-performance.mp4" controls></video>
+  <p class="message">
+    A historic stage — Jin performing "The Astronaut" live with Coldplay.  
+    His emotions, his smile, and the love from the audience made it a truly magical night we will never forget. 🌟
+  </p>
+
+  <h3>Jungkook at FIFA World Cup</h3>
+  <video src="path-to-fifa-worldcup-video.mp4" controls></video>
+  <p class="message">Jungkook representing BTS at the world's grandest stage.</p>
+
+  <h3>Namjoon's Indigo Album</h3>
+  <video src="path-to-indigo-video.mp4" controls></video>
+  <p class="message">A masterpiece from RM, telling the story of his journey through music.</p>
+
+  <h3>Jin's Military Enlistment</h3>
+  <img src="path-to-jin-military-photo.jpg" alt="Jin Enlistment">
+  <p class="message">Our hearts were heavy as Jin began his service, but we stood together in spirit.</p>
+
+ 
+ 
+  <div class="button-container">
+    <button class="nav-btn" onclick="prevPage()">Previous</button>
+    <button class="nav-btn" onclick="nextPage()">Next</button>
+  </div>
+</div>
+
+
+<!-- Page 4: 2023 - Big Events -->
+<div class="page" id="page4">
+  <h2>2023 Memories</h2>
+
+  <h3>J-Hope Military Enlistment</h3>
+  <img src="path-to-jhope-enlistment-photo.jpg" alt="Jhope Enlistment">
+  <p class="message">J-Hope began his service, and we supported him every step of the way.</p>
+
+  <h3>Jimin's FACE Album</h3>
+  <video src="path-to-face-album-video.mp4" controls></video>
+  <p class="message">Jimin’s beautiful album captured his emotions and the depth of his artistry.</p>
+
+  <h3>D-Day Album </h3>
+  <video src="path-to-d-day-tour-video.mp4" controls></video>
+  <p class="message">Suga’s journey around the world with his album D-Day, sharing his story with fans everywhere.</p>
+  
+   <h3>SUGA - D-DAY World Tour</h3>
+  <video id="d-day-tour-video" src="path-to-d-day-tour-video.mp4" controls></video>
+  <p class="message">
+    The "D-DAY" tour was a powerful journey through SUGA’s soul.  
+    From the deep lyrics to the breathtaking live stages, every moment connected ARMYs closer to Agust D's heart. 🖤🎤
+  </p>
+  
+  <h3>Take Two by BTS</h3>
+  <video id="take-two-video" src="path-to-take-two-video.mp4" controls></video>
+  <p class="message">
+    "Take Two" — a heartfelt gift from BTS to ARMY, reminding us that no matter the distance, we are always together. This song captured the emotions of 2023 Festa, filling our hearts with warmth and hope.
+  </p>
+
+
+  <h3>Festa 2023  </h3>
+  <video src="path-to-take-two-video.mp4" controls></video>
+  <p class="message">Festa 2023 was a celebration of BTS's accomplishments, and "Take Two" was the perfect anthem.</p>
+
+  <h3>V's Layover Album</h3>
+  <video src="path-to-layover-video.mp4" controls></video>
+  <p class="message">V’s soulful album brought us closer to his voice and heart.</p>
+
+  <h3>Jungkook's GOLDEN Album + GOLDEN Stage</h3>
+  <video src="path-to-golden-stage-video.mp4" controls></video>
+  <p class="message">Jungkook’s GOLDEN album and stages were nothing short of perfection.</p>
+
+    <h3>Jungkook - Golden On Stage</h3>
+  <video id="golden-on-stage-video" src="path-to-golden-on-stage-video.mp4" controls></video>
+  <p class="message">
+    "Golden On Stage" — Jungkook shining like the brightest star. His voice, energy, and passion touched ARMYs all around the world. A golden era that we’ll always treasure!
+  </p>
+  
+  <h3>Suga Military Enlistment</h3>
+  <img src="path-to-suga-enlistment-photo.jpg" alt="Suga Enlistment">
+  <p class="message">Suga’s departure for military service left us with mixed emotions, but we awaited his return.</p>
+
+  <h3>Jimin's Emotional Song 'Closer Than This'</h3>
+  <video src="path-to-closer-than-this-video.mp4" controls></video>
+  <p class="message">Jimin’s heartfelt song touched us deeply, reminding us of the bond we share with BTS.</p>
+
+  <h3>RM, V, Jimin, and Jungkook Military Enlistment</h3>
+  <img src="path-to-group-military-photo.jpg" alt="Military Enlistment">
+  <p class="message">The members, all together in spirit, took a pause, and we stood strong, united.</p>
+
+  <div class="button-container">
+    <button class="nav-btn" onclick="prevPage()">Previous</button>
+    <button class="nav-btn" onclick="nextPage()">Next</button>
+  </div>
+</div>
+
+<!-- Page 5: 2024 - Hwaiting BTS -->
+<div class="page" id="page5">
+  <h2>2024 Memories</h2>
+
+  <h3>Hope on the Street - Jhope</h3>
+  <video src="path-to-hope-on-street-video.mp4" controls></video>
+  <p class="message">J-Hope came back with a fresh perspective, bringing hope on the street!</p>
+
+  <h3>Right Place, Wrong Person by RM</h3>
+  <video src="path-to-rpwp-video.mp4" controls></video>
+  <p class="message">RM’s album, Right Place, Wrong Person, showcased his vulnerability and wisdom.</p>
+
+  <h3>Jimin's MUSE Album</h3>
+  <video src="path-to-muse-album-video.mp4" controls></video>
+  <p class="message">Jimin’s MUSE brought us closer to his artistry, emotions, and deeper stories.</p>
+
+ <h3>Never Let Go by Jungkook</h3>
+  <video src="path-to-never-let-go-video.mp4" controls></video>
+  <p class="message">Jungkook’s song, "Never Let Go," became the anthem of hope and resilience.</p>
+
+  <h3>Jin's Comeback and BTS Festa 2024</h3>
+  <video src="path-to-jin-festa2024-video.mp4" controls></video>
+  <p class="message">Jin’s comeback was celebrated with love and joy in the BTS Festa 2024.</p>
+
+ <h3>Jin - “Happy” Album Release</h3>
+  <video id="happy-album-video" src="path-to-happy-album-video.mp4" controls></video>
+  <p class="message">
+    After a long wait, Jin came back with sunshine in his voice.  
+    “Happy” was more than an album — it was a warm hug, a smile, and a celebration of his return to ARMY. 💫🌸
+  </p>
+  
+   <h3>Jin - “Happy” On Stage</h3>
+  <video id="happy-on-stage-video" src="path-to-happy-on-stage-video.mp4" controls></video>
+  <p class="message">
+    Jin lit up the stage with his heartfelt performance of “Happy.”  
+    His radiant smile, his voice, and the cheers of ARMY made this comeback performance a moment to remember forever. 💖🎤
+  </p>
+  
+   <h3>Run Jin!</h3>
+  <video id="run-jin-video" src="path-to-run-jin-video.mp4" controls></video>
+  <p class="message">
+    “Run Jin” marked the beautiful return of our Worldwide Handsome 💫  
+    His playful energy, love for ARMY, and stage presence filled hearts with joy — and showed us how much he missed running back to us. 🥹💜
+  </p>
+  
+  <h3>J-Hope is Back!</h3>
+  <video id="jhope-return-video" src="path-to-jhope-return-video.mp4" controls></video>
+  <p class="message">
+    Our sunshine is finally home! 🌞  
+    J-Hope returned with the same bright smile, full of warmth, pride, and hope.  
+    His return is not just a reunion, but a new beginning for BTS and ARMY. Welcome back, Hobi! 🧡🎶
+  </p>
+ 
+  <div class="button-container">
+    <button class="nav-btn" onclick="prevPage()">Previous</button>
+    <button class="nav-btn" onclick="nextPage()">Next</button>
+  </div>
+</div>
+
+<script>
+  let currentPage = 1;
+
+  function nextPage() {
+    document.getElementById(`page${currentPage}`).classList.remove('active');
+    currentPage++;
+    document.getElementById(`page${currentPage}`).classList.add('active');
+  }
+
+  function prevPage() {
+    document.getElementById(`page${currentPage}`).classList.remove('active');
+    currentPage--;
+    document.getElementById(`page${currentPage}`).classList.add('active');
+  }
+</script>
+</body>
+</html>
+
