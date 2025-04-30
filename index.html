@@ -17,11 +17,11 @@
     h2 {
       color: #8a2be2;
     }
-    .section {
+    .page {
       display: none;
       animation: fadeIn 1s ease-in-out;
     }
-    .section.active {
+    .page.active {
       display: block;
     }
     @keyframes fadeIn {
@@ -43,6 +43,11 @@
       border-radius: 12px;
       max-width: 100%;
     }
+    video {
+      width: 80%;
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
     .nav-buttons {
       margin-top: 2rem;
     }
@@ -59,171 +64,145 @@
     .nav-buttons button:hover {
       background-color: #ff85c1;
     }
-    .sticker {
+    .stickers {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+    .stickers img {
       width: 80px;
-      margin: 10px;
     }
   </style>
 </head>
 <body>
 
+<!-- Page 1 -->
 <div class="page active" id="page1">
-
-    <!-- Navigation Buttons -->
-    <div class="navigation">
-      <!-- Previous button hidden on Page 1 -->
-      <button style="display: none;">Previous</button>
-
-      <!-- Next button goes to Page 2 -->
-      <a href="page2.html" class="btn">Next</a>
-    </div>
-  
-    <div class="content">
-      
-        <h1>Finally the wait is over! 2025 is here! BTS is back!</h1>
-        <img src="images/intro.jpg" alt="Intro Image">
-    </div>
+  <h1>Finally the wait is over! 2025 is here! BTS is back!</h1>
+  <img src="images/intro.jpg" alt="Intro Image">
 </div>
 
+<!-- Page 2 -->
 <div class="page" id="page2">
-    <div class="content">
-        <h2>How we passed these years?</h2>
-        <p>Let's go and see.</p>
-        <img src="images/intro2.jpg" alt="Intro Image 2">
-    </div>
+  <h2>How we passed these years?</h2>
+  <p>Let's go and see.</p>
+  <img src="images/intro2.jpg" alt="Intro Image 2">
 </div>
 
-<!-- Page 3–8 Sample Structure -->
-
+<!-- Pages 3 to 8 Sample Structure -->
 <div class="page" id="page3">
-    <div class="content">
-        <div class="stickers">
-            <img src="images/left-sticker.png" alt="Left Sticker">
-            <img src="images/right-sticker.png" alt="Right Sticker">
-        </div>
-        <h2>Page 3 Content Title</h2>
-        <img src="images/page3-photo.jpg" alt="Page 3 Photo">
-        <video src="videos/page3-video.mp4" controls></video>
-        <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
-    </div>
+  <div class="stickers">
+    <img src="images/left-sticker.png" alt="Left Sticker">
+    <img src="images/right-sticker.png" alt="Right Sticker">
+  </div>
+  <h2>Page 3 Content Title</h2>
+  <img src="images/page3-photo.jpg" alt="Page 3 Photo">
+  <video src="videos/page3-video.mp4" controls></video>
+  <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
 </div>
 
 <div class="page" id="page4">
-    <div class="content">
-        <div class="stickers">
-            <img src="images/left-sticker.png" alt="Left Sticker">
-            <img src="images/right-sticker.png" alt="Right Sticker">
-        </div>
-        <h2>Page 4 Content Title</h2>
-        <img src="images/page4-photo.jpg" alt="Page 4 Photo">
-        <video src="videos/page4-video.mp4" controls></video>
-        <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
-    </div>
+  <div class="stickers">
+    <img src="images/left-sticker.png" alt="Left Sticker">
+    <img src="images/right-sticker.png" alt="Right Sticker">
+  </div>
+  <h2>Page 4 Content Title</h2>
+  <img src="images/page4-photo.jpg" alt="Page 4 Photo">
+  <video src="videos/page4-video.mp4" controls></video>
+  <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
 </div>
 
 <div class="page" id="page5">
-    <div class="content">
-        <div class="stickers">
-            <img src="images/left-sticker.png" alt="Left Sticker">
-            <img src="images/right-sticker.png" alt="Right Sticker">
-        </div>
-        <h2>Page 5 Content Title</h2>
-        <img src="images/page5-photo.jpg" alt="Page 5 Photo">
-        <video src="videos/page5-video.mp4" controls></video>
-        <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
-    </div>
+  <div class="stickers">
+    <img src="images/left-sticker.png" alt="Left Sticker">
+    <img src="images/right-sticker.png" alt="Right Sticker">
+  </div>
+  <h2>Page 5 Content Title</h2>
+  <img src="images/page5-photo.jpg" alt="Page 5 Photo">
+  <video src="videos/page5-video.mp4" controls></video>
+  <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
 </div>
 
 <div class="page" id="page6">
-    <div class="content">
-        <div class="stickers">
-            <img src="images/left-sticker.png" alt="Left Sticker">
-            <img src="images/right-sticker.png" alt="Right Sticker">
-        </div>
-        <h2>Page 6 Content Title</h2>
-        <img src="images/page6-photo.jpg" alt="Page 6 Photo">
-        <video src="videos/page6-video.mp4" controls></video>
-        <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
-    </div>
+  <div class="stickers">
+    <img src="images/left-sticker.png" alt="Left Sticker">
+    <img src="images/right-sticker.png" alt="Right Sticker">
+  </div>
+  <h2>Page 6 Content Title</h2>
+  <img src="images/page6-photo.jpg" alt="Page 6 Photo">
+  <video src="videos/page6-video.mp4" controls></video>
+  <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
 </div>
 
 <div class="page" id="page7">
-    <div class="content">
-        <div class="stickers">
-            <img src="images/left-sticker.png" alt="Left Sticker">
-            <img src="images/right-sticker.png" alt="Right Sticker">
-        </div>
-        <h2>Page 7 Content Title</h2>
-        <img src="images/page7-photo.jpg" alt="Page 7 Photo">
-        <video src="videos/page7-video.mp4" controls></video>
-        <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
-    </div>
+  <div class="stickers">
+    <img src="images/left-sticker.png" alt="Left Sticker">
+    <img src="images/right-sticker.png" alt="Right Sticker">
+  </div>
+  <h2>Page 7 Content Title</h2>
+  <img src="images/page7-photo.jpg" alt="Page 7 Photo">
+  <video src="videos/page7-video.mp4" controls></video>
+  <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
 </div>
 
 <div class="page" id="page8">
-    <div class="content">
-        <div class="stickers">
-            <img src="images/left-sticker.png" alt="Left Sticker">
-            <img src="images/right-sticker.png" alt="Right Sticker">
-        </div>
-        <h2>Page 8 Content Title</h2>
-        <img src="images/page8-photo.jpg" alt="Page 8 Photo">
-        <video src="videos/page8-video.mp4" controls></video>
-        <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
-    </div>
+  <div class="stickers">
+    <img src="images/left-sticker.png" alt="Left Sticker">
+    <img src="images/right-sticker.png" alt="Right Sticker">
+  </div>
+  <h2>Page 8 Content Title</h2>
+  <img src="images/page8-photo.jpg" alt="Page 8 Photo">
+  <video src="videos/page8-video.mp4" controls></video>
+  <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
 </div>
 
 <!-- Page 9 -->
 <div class="page" id="page9">
-    <div class="content">
-        <h2>Thank You Message</h2>
-        <img src="images/message.jpg" alt="Message Image">
-    </div>
+  <h2>Thank You Message</h2>
+  <img src="images/message.jpg" alt="Message Image">
 </div>
 
 <!-- Page 10 -->
-  <a href="page9.html"><button>Previous</button></a>
-<button style="display: none;">Next</button>
-
 <div class="page" id="page10">
-    <div class="content">
-        <h2>The End</h2>
-        <img src="images/ending.jpg" alt="Ending Image">
-    </div>
+  <h2>The End</h2>
+  <img src="images/ending.jpg" alt="Ending Image">
 </div>
 
-<!-- Navigation Buttons -->
-<div class="navigation">
-    <button onclick="prevPage()">Previous</button>
-    <button onclick="nextPage()">Next</button>
+<!-- Navigation -->
+<div class="nav-buttons">
+  <button onclick="prevPage()">Previous</button>
+  <button onclick="nextPage()">Next</button>
 </div>
 
 <script>
-    let currentPage = 1;
-    const totalPages = 10;
+  let currentPage = 1;
+  const totalPages = 10;
 
-    function showPage(pageNumber) {
-        document.querySelectorAll('.page').forEach((page, index) => {
-            page.classList.remove('active');
-            if (index + 1 === pageNumber) {
-                page.classList.add('active');
-            }
-        });
-    }
+  function showPage(pageNumber) {
+    document.querySelectorAll('.page').forEach((page, index) => {
+      page.classList.remove('active');
+      if (index + 1 === pageNumber) {
+        page.classList.add('active');
+      }
+    });
+  }
 
-    function nextPage() {
-        if (currentPage < totalPages) {
-            currentPage++;
-            showPage(currentPage);
-        }
+  function nextPage() {
+    if (currentPage < totalPages) {
+      currentPage++;
+      showPage(currentPage);
     }
+  }
 
-    function prevPage() {
-        if (currentPage > 1) {
-            currentPage--;
-            showPage(currentPage);
-        }
+  function prevPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      showPage(currentPage);
     }
+  }
+
+  // Show first page on load
+  showPage(currentPage);
 </script>
 
 </body>
