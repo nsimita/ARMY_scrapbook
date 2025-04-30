@@ -1,310 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ARMY Scrapbook</title>
   <style>
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
-      font-family: 'Arial', sans-serif;
     }
-    body, html {
-      height: 100%;
-      overflow: hidden;
-      background: linear-gradient(135deg, #ff8e8e, #e6c1f2);
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fef6fd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
+
     .page {
       display: none;
-      height: 100vh;
-      width: 100vw;
-      text-align: center;
-      padding: 40px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      overflow-y: auto;
-      opacity: 0;
-      transition: opacity 1s ease;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      width: 100%;
+      position: relative;
     }
-    .page.active {
-      display: block;
-      opacity: 1;
+
+    .active {
+      display: flex;
     }
-    .button-container {
-      margin-top: 30px;
-    }
-    .nav-btn {
-      padding: 12px 24px;
-      background: #ff80ab;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-size: 18px;
-      margin: 10px;
-      cursor: pointer;
-      transition: background 0.3s, box-shadow 0.3s;
-    }
-    .nav-btn:hover {
-      background: #ff4081;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
-    h1, h2, h3 {
-      margin-top: 20px;
-      color: #ffffff;
-      animation: fadeIn 1s ease-out;
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-    img, video {
-      max-width: 80%;
+
+    img, video, iframe {
+      max-width: 90%;
       height: auto;
-      margin-top: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      opacity: 0;
-      animation: fadeInImage 1.5s ease-out forwards;
+      margin: 10px 0;
+      border-radius: 8px;
     }
-    @keyframes fadeInImage {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 90%;
+      margin: 20px auto;
     }
-    #bg-music {
-      display: none;
+
+    .nav-buttons button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #713fc2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
-    .message {
-      font-size: 18px;
-      color: #fff;
-      margin-top: 15px;
-      opacity: 0;
-      animation: fadeInMessage 1s ease-out forwards;
+
+    .nav-buttons button:hover {
+      background-color: #5a2fa0;
     }
-    @keyframes fadeInMessage {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
+
+    .sticker-left, .sticker-right {
+      position: absolute;
+      top: 50px;
+      width: 60px;
+    }
+
+    .sticker-left {
+      left: 10px;
+    }
+
+    .sticker-right {
+      right: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .sticker-left, .sticker-right {
+        width: 40px;
       }
     }
   </style>
 </head>
-
 <body>
 
-<!-- Page 1: Intro -->
-<div class="page active" id="page1">
-  <h1>Finally the wait is over! 2025 is here! BTS is back!</h1>
-  <img src="path-to-your-page1-image.jpg" alt="Intro Image">
-  <audio id="bg-music" src="path-to-your-music.mp3" autoplay loop></audio>
-  <p class="message">The excitement, the anticipation, and the joy of a new era with BTS!</p>
-  <div class="button-container">
-    <button class="nav-btn" onclick="nextPage()">Next</button>
+  <!-- Page 1 -->
+  <div class="page active">
+    <h1>Finally the wait is over! 2025 is here! BTS is back!</h1>
+    <img src="path/to/page1_photo.jpg" alt="Intro Photo" />
   </div>
-</div>
 
-<!-- Page 2: How we passed -->
-<div class="page" id="page2">
-  <h2>How we passed these years?</h2>
-  <h3>Let's go and see</h3>
-  <img src="path-to-your-page2-image.jpg" alt="Memories Image">
-  <p class="message">In these years, we experienced countless memories and moments that made us stronger together.</p>
-  <div class="button-container">
-    <button class="nav-btn" onclick="prevPage()">Previous</button>
-    <button class="nav-btn" onclick="nextPage()">Next</button>
+  <!-- Page 2 -->
+  <div class="page">
+    <h2>How we passed these years?</h2>
+    <p>Let's go and see</p>
+    <img src="path/to/page2_photo.jpg" alt="Second Page Photo" />
   </div>
-</div>
 
-<!-- Page 3: 2022 - Proof Album + Festa Dinner + More -->
+  <!-- Page 3 to Page 8 (Media Pages) -->
+ <!-- Page 3: Glimpse of 2022 -->
 <div class="page" id="page3">
-  <!-- Stickers -->
-  <img src="path-to-left-sticker.png" alt="Sticker Left" style="position: absolute; top: 20px; left: 10px; width: 60px; height: auto;">
-  <img src="path-to-right-sticker.png" alt="Sticker Right" style="position: absolute; top: 20px; right: 10px; width: 60px; height: auto;">
-
-  <h2>2022 Memories</h2>
-
-  <h3>Proof Album Release</h3>
-  <img src="path-to-proof-album-photo.jpg" alt="Proof Album Photo">
-  <p class="message">Proof of our bond: the album that sealed our memories forever.</p>
-  <a href="https://open.spotify.com/track/6al2VdKbb6FIz9d7lU7WRB" target="_blank" class="message" style="color: yellow;">🎵 Listen to "Yet To Come" on Spotify</a>
-
-  <h3>BTS Festa Dinner 2022</h3>
-  <a href="https://www.youtube.com/watch?v=Qp5kXy7Xnqw" target="_blank">
-    <img src="path-to-festa-dinner-photo.jpg" alt="Festa Dinner">
-  </a>
-  <p class="message">The laughter, the stories, and the spirit of BTS celebrating together.</p>
-
-  <h3>Jack in the Box – J-Hope's Solo Album</h3>
-  <img src="path-to-jitb-photo.jpg" alt="Jack in the Box Album">
-  <p class="message">J-Hope unleashed his artistic fire with this iconic solo debut.</p>
-  <a href="https://open.spotify.com/album/4NI93DOt2b4v65vptbCeh0" target="_blank" class="message" style="color: yellow;">🎧 Listen on Spotify</a>
-
-  <h3>Lollapalooza Performance</h3>
-  <video src="path-to-lollapalooza-video.mp4" controls></video>
-  <p class="message">J-Hope became the first Korean artist to headline a major U.S. festival.</p>
-
-  <h3>BTS in the SEOM Game</h3>
-  <img src="path-to-in-the-seom-photo.jpg" alt="In the SEOM">
-  <p class="message">A peaceful puzzle game full of BTS charm and creativity.</p>
-
-  <h3>BTS Members' Solo Vlogs</h3>
-  <img src="path-to-solo-vlogs-photo.jpg" alt="Solo Vlogs">
-  <p class="message">From cooking to painting, we saw their individual sides up close.</p>
-
-  <h3>RUN BTS - Telepathy Episode</h3>
-  <img src="path-to-run-bts-photo.jpg" alt="RUN BTS Telepathy">
-  <p class="message">A fun and heartwarming reunion with the classic BTS chaos.</p>
-
-  <h3>Last OT7 Live on Chuseok</h3>
-  <img src="path-to-chuseok-live-photo.jpg" alt="OT7 Chuseok Live">
-  <p class="message">The last full-group live before enlistments, filled with love.</p>
-
-  <h3>BTS on MCountdown</h3>
-  <img src="path-to-mcountdown-photo.jpg" alt="MCountdown">
-  <p class="message">Their powerful return on stage made ARMY proud worldwide.</p>
-
-  <h3>Yet To Come in Busan Concert</h3>
-  <video src="path-to-busan-concert-video.mp4" controls></video>
-  <p class="message">A grand show to remember—BTS united with ARMY in Busan.</p>
-
-  <h3>J-Hope at MAMA 2022</h3>
-  <img src="path-to-jhope-mama-photo.jpg" alt="J-Hope MAMA">
-  <p class="message">His dynamic performance lit up the MAMA stage with fire.</p>
-
-  <h3>The Astronaut by Jin</h3>
-  <img src="path-to-astronaut-photo.jpg" alt="The Astronaut">
-  <p class="message">A heartfelt farewell gift before his enlistment.</p>
-  <a href="https://open.spotify.com/track/5odlY52u43F5BjByhxg7wg" target="_blank" class="message" style="color: yellow;">🎧 Listen on Spotify</a>
-
-  <h3>Jin's Performance with Coldplay</h3>
-  <img src="path-to-jin-coldplay-photo.jpg" alt="Jin with Coldplay">
-  <p class="message">A magical collaboration under the stars.</p>
-
-  <h3>Jungkook Performing "Dreamers" at FIFA</h3>
-  <video src="path-to-fifa-video.mp4" controls></video>
-  <p class="message">Jungkook made history on the world stage with "Dreamers."</p>
-
-  <h3>Suchwita – Suga's Talk Show</h3>
-  <img src="path-to-suchwita-photo.jpg" alt="Suchwita Show">
-  <p class="message">A candid window into the thoughts of artists with Suga.</p>
-
-  <h3>RM's Indigo Album</h3>
-  <img src="path-to-indigo-photo.jpg" alt="Indigo Album">
-  <p class="message">A reflection of Namjoon's inner world, full of honesty and soul.</p>
-  <a href="https://open.spotify.com/album/6vFtx2fGsXjEcx1T3kA0MY" target="_blank" class="message" style="color: yellow;">🎧 Listen on Spotify</a>
-
-  <h3>Jin - First to Enlist for Military Service</h3>
-  <img src="path-to-jin-enlistment-photo.jpg" alt="Jin Military">
-  <p class="message">Jin's courage marked the beginning of a temporary farewell.</p>
-
-  <div class="button-container">
-    <button class="nav-btn" onclick="prevPage()">Previous</button>
-    <button class="nav-btn" onclick="nextPage()">Next</button>
+  <h2>Glimpse of 2022</h2>
+  <img class="sticker-left" src="stickers/left3.png" alt="Left Sticker"/>
+  <img class="sticker-right" src="stickers/right3.png" alt="Right Sticker"/>
+  <img src="images/proof_album.jpg" alt="Proof Album"/>
+  <video controls src="videos/yet_to_come.mp4"></video>
+  <iframe src="https://open.spotify.com/embed/track/example1" height="80"></iframe>
+  <div class="navigation">
+    <a href="#page2">Previous</a>
+    <a href="#page4">Next</a>
   </div>
 </div>
 
-<!-- Page 4: 2023 - Big Events -->
+<!-- Page 4: Suchwita Episodes -->
 <div class="page" id="page4">
-  <h2>2023 Memories</h2>
-
-  <h3>J-Hope Military Enlistment</h3>
-  <img src="path-to-jhope-enlistment-photo.jpg" alt="Jhope Enlistment">
-  <p class="message">J-Hope began his service, and we supported him every step of the way.</p>
-
-  <h3>Jimin's FACE Album</h3>
-  <video src="path-to-face-album-video.mp4" controls></video>
-  <p class="message">Jimin’s beautiful album captured his emotions and the depth of his artistry.</p>
-
-  <h3>D-Day Album and Suga's World Tour</h3>
-  <video src="path-to-d-day-tour-video.mp4" controls></video>
-  <p class="message">Suga’s journey around the world with his album D-Day, sharing his story with fans everywhere.</p>
-
-  <h3>Festa 2023 + Take Two Song</h3>
-  <video src="path-to-take-two-video.mp4" controls></video>
-  <p class="message">Festa 2023 was a celebration of BTS's accomplishments, and "Take Two" was the perfect anthem.</p>
-
-  <h3>V's Layover Album</h3>
-  <video src="path-to-layover-video.mp4" controls></video>
-  <p class="message">V’s soulful album brought us closer to his voice and heart.</p>
-
-  <h3>Jungkook's GOLDEN Album + GOLDEN Stage</h3>
-  <video src="path-to-golden-stage-video.mp4" controls></video>
-  <p class="message">Jungkook’s GOLDEN album and stages were nothing short of perfection.</p>
-
-  <h3>Suga Military Enlistment</h3>
-  <img src="path-to-suga-enlistment-photo.jpg" alt="Suga Enlistment">
-  <p class="message">Suga’s departure for military service left us with mixed emotions, but we awaited his return.</p>
-
-  <h3>Jimin's Emotional Song 'Closer Than This'</h3>
-  <video src="path-to-closer-than-this-video.mp4" controls></video>
-  <p class="message">Jimin’s heartfelt song touched us deeply, reminding us of the bond we share with BTS.</p>
-
-  <h3>RM, V, Jimin, and Jungkook Military Enlistment</h3>
-  <img src="path-to-group-military-photo.jpg" alt="Military Enlistment">
-  <p class="message">The members, all together in spirit, took a pause, and we stood strong, united.</p>
-
-  <div class="button-container">
-    <button class="nav-btn" onclick="prevPage()">Previous</button>
-    <button class="nav-btn" onclick="nextPage()">Next</button>
+  <h2>Suchwita Episodes</h2>
+  <img class="sticker-left" src="stickers/left4.png" alt="Left Sticker"/>
+  <img class="sticker-right" src="stickers/right4.png" alt="Right Sticker"/>
+  <img src="images/suchwita.jpg" alt="Suchwita Thumbnail"/>
+  <video controls src="videos/suchwita_clip.mp4"></video>
+  <iframe src="https://open.spotify.com/embed/track/example2" height="80"></iframe>
+  <div class="navigation">
+    <a href="#page3">Previous</a>
+    <a href="#page5">Next</a>
   </div>
 </div>
 
-<!-- Page 5: 2024 - Hwaiting BTS -->
+<!-- Page 5: Glimpse of 2023 -->
 <div class="page" id="page5">
-  <h2>2024 Memories</h2>
-
-  <h3>Hope on the Street - Jhope</h3>
-  <video src="path-to-hope-on-street-video.mp4" controls></video>
-  <p class="message">J-Hope came back with a fresh perspective, bringing hope on the street!</p>
-
-  <h3>Right Place, Wrong Person by RM</h3>
-  <video src="path-to-rpwp-video.mp4" controls></video>
-  <p class="message">RM’s album, Right Place, Wrong Person, showcased his vulnerability and wisdom.</p>
-
-  <h3>Jimin's MUSE Album</h3>
-  <video src="path-to-muse-album-video.mp4" controls></video>
-  <p class="message">Jimin’s MUSE brought us closer to his artistry, emotions, and deeper stories.</p>
-
-  <h3>Jin's Comeback and BTS Festa 2024</h3>
-  <video src="path-to-jin-festa2024-video.mp4" controls></video>
-  <p class="message">Jin’s comeback was celebrated with love and joy in the BTS Festa 2024.</p>
-
-  <h3>Never Let Go by Jungkook</h3>
-  <video src="path-to-never-let-go-video.mp4" controls></video>
-  <p class="message">Jungkook’s song, "Never Let Go," became the anthem of hope and resilience.</p>
-
-  <div class="button-container">
-    <button class="nav-btn" onclick="prevPage()">Previous</button>
-    <button class="nav-btn" onclick="nextPage()">Next</button>
+  <h2>Glimpse of 2023</h2>
+  <img class="sticker-left" src="stickers/left5.png" alt="Left Sticker"/>
+  <img class="sticker-right" src="stickers/right5.png" alt="Right Sticker"/>
+  <img src="images/d_day_album.jpg" alt="D-DAY Album"/>
+  <video controls src="videos/hope_on_street.mp4"></video>
+  <iframe src="https://open.spotify.com/embed/track/example3" height="80"></iframe>
+  <div class="navigation">
+    <a href="#page4">Previous</a>
+    <a href="#page6">Next</a>
   </div>
 </div>
 
-<script>
-  let currentPage = 1;
+<!-- Page 6: Military Messages -->
+<div class="page" id="page6">
+  <h2>Military Messages</h2>
+  <img class="sticker-left" src="stickers/left6.png" alt="Left Sticker"/>
+  <img class="sticker-right" src="stickers/right6.png" alt="Right Sticker"/>
+  <img src="images/jin_message.jpg" alt="Jin's Message"/>
+  <video controls src="videos/jhope_message.mp4"></video>
+  <iframe src="https://open.spotify.com/embed/track/example4" height="80"></iframe>
+  <div class="navigation">
+    <a href="#page5">Previous</a>
+    <a href="#page7">Next</a>
+  </div>
+</div>
 
-  function nextPage() {
-    document.getElementById(page${currentPage}).classList.remove('active');
-    currentPage++;
-    document.getElementById(page${currentPage}).classList.add('active');
-  }
+<!-- Page 7: Glimpse of 2024 -->
+<div class="page" id="page7">
+  <h2>Glimpse of 2024</h2>
+  <img class="sticker-left" src="stickers/left7.png" alt="Left Sticker"/>
+  <img class="sticker-right" src="stickers/right7.png" alt="Right Sticker"/>
+  <img src="images/happy_album.jpg" alt="Happy Album"/>
+  <video controls src="videos/run_jin.mp4"></video>
+  <iframe src="https://open.spotify.com/embed/track/example5" height="80"></iframe>
+  <div class="navigation">
+    <a href="#page6">Previous</a>
+    <a href="#page8">Next</a>
+  </div>
+</div>
 
-  function prevPage() {
-    document.getElementById(page${currentPage}).classList.remove('active');
-    currentPage--;
-    document.getElementById(page${currentPage}).classList.add('active');
-  }
-</script>
+<!-- Page 8: Glimpse of 2025 -->
+<div class="page" id="page8">
+  <h2>Glimpse of 2025</h2>
+  <img class="sticker-left" src="stickers/left8.png" alt="Left Sticker"/>
+  <img class="sticker-right" src="stickers/right8.png" alt="Right Sticker"/>
+  <img src="images/echo_album.jpg" alt="Echo Album"/>
+  <video controls src="videos/stop_the_rain.mp4"></video>
+  <iframe src="https://open.spotify.com/embed/track/example6" height="80"></iframe>
+  <div class="navigation">
+    <a href="#page7">Previous</a>
+    <a href="#page9">Next</a>
+  </div>
+</div>
+
+
+  <!-- Page 9 -->
+  <div class="page">
+    <h2>ARMY Message</h2>
+    <img src="path/to/page9_photo.jpg" alt="Message Photo" />
+    <p>Thank you for staying with BTS all these years 💜</p>
+  </div>
+
+  <!-- Page 10 -->
+  <div class="page">
+    <h2>See You Soon</h2>
+    <img src="path/to/page10_photo.jpg" alt="Ending Photo" />
+    <p>Keep supporting BTS forever 💜</p>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="nav-buttons">
+    <button onclick="changePage(-1)">Previous</button>
+    <button onclick="changePage(1)">Next</button>
+  </div>
+
+  <script>
+    let currentPage = 0;
+    const pages = document.querySelectorAll('.page');
+
+    function changePage(direction) {
+      pages[currentPage].classList.remove('active');
+      currentPage += direction;
+
+      if (currentPage < 0) currentPage = 0;
+      if (currentPage >= pages.length) currentPage = pages.length - 1;
+
+      pages[currentPage].classList.add('active');
+    }
+  </script>
 </body>
 </html>
+
+
+
+  
+
