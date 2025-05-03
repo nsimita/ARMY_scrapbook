@@ -3,31 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>ARMY Scrapbook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fdf6ff;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to right, #f3e5f5, #e1bee7);
+      background-attachment: fixed;
       margin: 0;
       padding: 2rem;
       text-align: center;
     }
-    h1 {
+    h1, h2 {
+      font-family: 'Pacifico', cursive;
       color: #6a0dad;
     }
     h2 {
       color: #8a2be2;
     }
+    
+    /* PAGE TRANSITIONS */
     .page {
-      display: none;
-      animation: fadeIn 1s ease-in-out;
+      opacity: 0;
+      transform: scale(0.97);
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      left: 0;
+      top: 0;
     }
     .page.active {
-      display: block;
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    
+    /* EVENT CARDS */
     .event {
       background-color: #ffffff;
       border-left: 6px solid #b19cd9;
@@ -37,7 +48,9 @@
       border-radius: 1rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       text-align: left;
+      color: #333;
     }
+    
     iframe {
       margin-top: 1rem;
       border-radius: 12px;
@@ -48,22 +61,52 @@
       border-radius: 12px;
       margin-top: 1rem;
     }
+    
+    /* NAVIGATION BUTTONS */
     .nav-buttons {
-      margin-top: 2rem;
+      position: fixed;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 1000;
+      padding: 15px 0;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(5px);
+      opacity: 0.7;
+      transition: all 0.5s ease;
+      transform: translateY(20px);
+    }
+    .nav-buttons:hover,
+    body.scrolling .nav-buttons {
+      opacity: 1;
+      transform: translateY(0);
     }
     .nav-buttons button {
-      padding: 10px 20px;
-      margin: 0 10px;
-      font-size: 1rem;
-      background-color: #ff69b4;
+      padding: 12px 25px;
+      margin: 0 15px;
+      font-size: 1.1rem;
+      background: linear-gradient(45deg, #ff69b4, #8a2be2);
       color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 50px;
       cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
     }
     .nav-buttons button:hover {
-      background-color: #ff85c1;
+      transform: scale(1.05);
     }
+    
+    /* PAGE INDICATOR */
+    #page-indicator {
+      font-family: 'Quicksand', sans-serif;
+      color: #6a0dad;
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
     .stickers {
       display: flex;
       justify-content: space-between;
@@ -72,10 +115,26 @@
     .stickers img {
       width: 80px;
     }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .event {
+        width: 95%;
+        padding: 1rem;
+      }
+      .nav-buttons button {
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-
+<div class="pages">
 <!-- Page 1 -->
 <div class="page active" id="page1">
   <h1>Finally the wait is over! 2025 is here! BTS is back!</h1>
@@ -89,27 +148,99 @@
   <img src="images/intro2.jpg" alt="Intro Image 2">
 </div>
 
-<!-- Pages 3 to 8 Sample Structure -->
+<!-- Pages 3-11 content would go here (same as your original content) -->
+<!-- ... -->
 <div class="page" id="page3">
   <div class="stickers">
     <img src="images/left-sticker.png" alt="Left Sticker">
     <img src="images/right-sticker.png" alt="Right Sticker">
   </div>
-  <h2>Page 3 Content Title</h2>
-  <img src="images/page3-photo.jpg" alt="Page 3 Photo">
-  <video src="videos/page3-video.mp4" controls></video>
-  <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
+
+  <!-- 1. Proof Album Release -->
+  <h2>Proof Album Release</h2>
+  <img src="images/yet-to-come.jpg" alt="Yet to Come MV">
+  <iframe src="https://open.spotify.com/embed/track/7o2CTH4ctstm8TNelqjb51" allowtransparency="true"></iframe>
+  <p class="event">"Yet to Come" reminded ARMYs that our journey with BTS was far from over — the best was always ahead.</p>
+
+  <!-- 2. BTS FESTA Dinner -->
+  <h2>BTS FESTA Dinner 2022</h2>
+  <img src="images/festa-dinner.jpg" alt="FESTA Dinner">
+  <p class="event">During this emotional dinner, the members opened up about their individual paths. It was raw, honest, and full of love.</p>
+
+  <!-- 3. J-Hope Solo Era Begins -->
+  <h2>J-Hope’s Solo Era Begins</h2>
+  <img src="images/arson.jpg" alt="Arson MV">
+  <iframe src="https://open.spotify.com/embed/track/0xVbZ06ZcyReLHRXnkkg6Z" allowtransparency="true"></iframe>
+  <p class="event">"Arson" set fire to a new chapter — Hoseok's fearless artistry shone like never before.</p>
+
+  <!-- 4. J-Hope at Lollapalooza -->
+  <h2>J-Hope at Lollapalooza</h2>
+  <iframe width="80%" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+  <p class="event">J-Hope made history as the first Korean artist to headline Lolla — and he lit up the stage.</p>
+
+  <!-- 5. BTS Vlogs -->
+  <h2>BTS Vlogs</h2>
+  <img src="images/vlogs-collage.jpg" alt="BTS Vlog Collage">
+  <p class="event">From painting to camping, each member gave us a piece of their daily lives. These vlogs felt like a warm hug.</p>
+
+  <!-- 6. BTS at M Countdown -->
+  <h2>BTS on M Countdown</h2>
+  <iframe width="80%" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+  <p class="event">Their final "Yet to Come" stage on Korean music shows left us in tears and full of pride.</p>
+
+  <!-- 7. Yet to Come in BUSAN -->
+  <h2>Yet to Come in BUSAN</h2>
+  <iframe width="80%" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+  <p class="event">A concert for the ages — BTS and ARMY came together like never before for the World Expo.</p>
+
+  <!-- 8. The Astronaut by Jin -->
+  <h2>The Astronaut – Jin</h2>
+  <img src="images/the-astronaut.jpg" alt="The Astronaut Cover">
+  <iframe src="https://open.spotify.com/embed/track/0j2fN5P0zhSxwWbD4diXHi" allowtransparency="true"></iframe>
+  <p class="event">Jin gave us his heart in "The Astronaut", co-written with Coldplay — a soft, celestial farewell.</p>
+
+  <!-- 9. Jin with Coldplay Performance -->
+  <h2>Jin with Coldplay Live</h2>
+  <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank">
+    <img src="images/jin-coldplay.jpg" alt="Jin and Coldplay">
+  </a>
+  <p class="event">That one live performance with Coldplay? Pure magic. A night written in the stars.</p>
+
+  <!-- 10. J-Hope at MAMA Awards -->
+  <h2>J-Hope at MAMA Awards</h2>
+  <iframe width="80%" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+  <p class="event">A fierce, passionate performance that showed his evolution as a solo artist.</p>
+
+  <!-- 11. Jungkook at FIFA World Cup -->
+  <h2>Jungkook at the FIFA World Cup</h2>
+  <iframe width="80%" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+  <p class="event">Golden Maknae stole the global stage with “Dreamers” at the World Cup opening ceremony.</p>
+
+  <!-- 12. Indigo by RM -->
+  <h2>Indigo – RM</h2>
+  <img src="images/indigo.jpg" alt="Indigo Album">
+  <iframe src="https://open.spotify.com/embed/album/1e6zWcYxrQ9m6rT2kmpW4v" allowtransparency="true"></iframe>
+  <p class="event">A masterpiece of thought and emotion, “Indigo” was RM’s letter to the world and to himself.</p>
+
+  <!-- 13. Jin's Military Enlistment -->
+  <h2>Jin’s Military Enlistment</h2>
+  <img src="images/jin-enlistment.jpg" alt="Jin Military Photo">
+  <p class="event">With courage and calm, Jin was the first to enlist. ARMY stood by with respect, love, and quiet tears.</p>
 </div>
+
+
 
 <div class="page" id="page4">
   <div class="stickers">
     <img src="images/left-sticker.png" alt="Left Sticker">
     <img src="images/right-sticker.png" alt="Right Sticker">
   </div>
-  <h2>Page 4 Content Title</h2>
-  <img src="images/page4-photo.jpg" alt="Page 4 Photo">
-  <video src="videos/page4-video.mp4" controls></video>
-  <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
+
+  <h2>Suchwita – A Refreshing Show by SUGA</h2>
+  <img src="images/suchwita-collage.jpg" alt="Suchwita Collage">
+  <p class="event">
+    With *Suchwita*, SUGA brought deep, honest conversations to our screens. Whether chatting with fellow artists, BTS members, or just reflecting with a drink in hand, Yoongi showed us his thoughtful side in a new way. It was intimate, intelligent, and incredibly healing for ARMYs who missed seeing the members together.
+  </p>
 </div>
 
 <div class="page" id="page5">
@@ -117,10 +248,24 @@
     <img src="images/left-sticker.png" alt="Left Sticker">
     <img src="images/right-sticker.png" alt="Right Sticker">
   </div>
-  <h2>Page 5 Content Title</h2>
-  <img src="images/page5-photo.jpg" alt="Page 5 Photo">
-  <video src="videos/page5-video.mp4" controls></video>
-  <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
+
+  <h2>BTS 8 Photofolio – A Dreamlike Gift</h2>
+  <img src="images/photofolio-collage.jpg" alt="BTS Photofolio Collage">
+
+  <p class="event">
+    The BTS 8 Photofolio project was a celebration of individuality and creativity. Each member explored a unique concept—from Jungkook's mesmerizing vampire to RM’s rugged biker, and Jimin's ethereal elegance. These photofolios helped us connect with each member’s imagination during their solo journeys.
+  </p>
+
+  <div class="gallery">
+    <img src="images/photofolio-jk.jpg" alt="Jungkook Photofolio">
+    <img src="images/photofolio-nj.jpg" alt="RM Photofolio">
+    <img src="images/photofolio-jh.jpg" alt="J-Hope Photofolio">
+    <img src="images/photofolio-jm.jpg" alt="Jimin Photofolio">
+    <img src="images/photofolio-v.jpg" alt="V Photofolio">
+    <img src="images/photofolio-jin.jpg" alt="Jin Photofolio">
+    <img src="images/photofolio-sg.jpg" alt="SUGA Photofolio">
+    <img src="images/photofolio-jk2.jpg" alt="Jungkook 2nd Photofolio">
+  </div>
 </div>
 
 <div class="page" id="page6">
@@ -128,21 +273,146 @@
     <img src="images/left-sticker.png" alt="Left Sticker">
     <img src="images/right-sticker.png" alt="Right Sticker">
   </div>
-  <h2>Page 6 Content Title</h2>
-  <img src="images/page6-photo.jpg" alt="Page 6 Photo">
-  <video src="videos/page6-video.mp4" controls></video>
-  <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
+
+  <h2>More Beautiful Moments with BTS</h2>
+
+  <div class="event">
+    <h3>On The Street by J-Hope</h3>
+    <img src="images/on-the-street.jpg" alt="On The Street">
+    <iframe src="https://open.spotify.com/embed/track/spotify_track_id_here" allowtransparency="true"></iframe>
+    <p>A heartfelt send-off song before his enlistment, expressing gratitude and connection with ARMY.</p>
+  </div>
+
+  <div class="event">
+    <h3>J-Hope's Military Enlistment</h3>
+    <img src="images/jhope-military.jpg" alt="J-Hope Military">
+    <p>With strength and grace, J-Hope stepped into his new chapter while ARMY cheered him on.</p>
+  </div>
+
+  <div class="event">
+    <h3>Face Album by Jimin</h3>
+    <img src="images/face-album.jpg" alt="Jimin Face">
+    <iframe src="https://open.spotify.com/embed/album/spotify_album_id_here" allowtransparency="true"></iframe>
+    <p>Jimin’s introspective solo debut album touched our hearts with vulnerability and beauty.</p>
+  </div>
+
+  <div class="event">
+    <h3>D-DAY Album by Agust D (SUGA)</h3>
+    <img src="images/dday-album.jpg" alt="D-DAY Album">
+    <iframe src="https://open.spotify.com/embed/album/spotify_album_id_here" allowtransparency="true"></iframe>
+    <p>A bold and reflective masterpiece closing the Agust D trilogy with raw emotions and truth.</p>
+  </div>
+
+  <div class="event">
+    <h3>D-DAY Tour</h3>
+    <img src="images/dday-tour.jpg" alt="D-DAY Tour">
+    <p>SUGA's global tour brought intimacy, fire, and catharsis—every stage was a story told with soul.</p>
+  </div>
+
+  <div class="event">
+    <h3>Take Two – OT7 Song</h3>
+    <iframe src="https://open.spotify.com/embed/track/spotify_track_id_here" allowtransparency="true"></iframe>
+    <p>A gentle promise of “Take Two” as BTS assures ARMY that this is just the beginning.</p>
+  </div>
+
+  <div class="event">
+    <h3>BTS Festa 2023</h3>
+    <a href="https://www.youtube.com/watch?v=video_link_here" target="_blank">
+      <img src="images/festa-2023.jpg" alt="BTS Festa 2023">
+    </a>
+    <p>Celebrating 10 years of magic, memories, and meaning—the Festa made us cry, smile, and feel connected.</p>
+  </div>
+
+  <div class="event">
+    <h3>Jack In The Box (Hope Edition)</h3>
+    <img src="images/jitb-hope-edition.jpg" alt="JITB Hope Edition">
+    <p>The re-release of J-Hope’s solo debut with new tracks and live versions gave us fresh energy.</p>
+  </div>
+
+  <div class="event">
+    <h3>SUGA's Military Enlistment</h3>
+    <p>ARMY sent off our genius producer with pride and prayers for his safety and strength.</p>
+  </div>
+
+  <div class="event">
+    <h3>Layover Album by V</h3>
+    <img src="images/layover.jpg" alt="Layover Album">
+    <iframe src="https://open.spotify.com/embed/album/spotify_album_id_here" allowtransparency="true"></iframe>
+    <p>V’s velvety vocals and vintage vibe brought warmth and longing with every track.</p>
+  </div>
+
+  <div class="event">
+    <h3>Golden Album by Jungkook</h3>
+    <img src="images/golden.jpg" alt="Golden Album">
+    <iframe src="https://open.spotify.com/embed/album/spotify_album_id_here" allowtransparency="true"></iframe>
+    <p>Jungkook’s first full-length solo album sparkled with pop power, charisma, and golden vocals.</p>
+  </div>
+
+  <div class="event">
+    <h3>Golden On Stage</h3>
+    <img src="images/golden-on-stage.jpg" alt="Golden On Stage">
+    <p>Jungkook’s live showcase highlighted his commanding stage presence and connection with fans.</p>
+  </div>
+
+  <div class="event">
+    <h3>Beyond The Story – The Memoir</h3>
+    <img src="images/beyond-the-story.jpg" alt="Beyond The Story">
+    <p>A beautifully told journey of BTS—from debut struggles to global milestones. A gift for ARMY and history alike.</p>
+  </div>
+
+  <div class="event">
+    <h3>Beyond The Stage – Documentary</h3>
+    <a href="https://www.youtube.com/watch?v=video_link_here" target="_blank">
+      <img src="images/beyond-the-stage.jpg" alt="Beyond The Stage">
+    </a>
+    <p>An emotional behind-the-scenes look into BTS’s bond, creativity, and what it means to keep going.</p>
+  </div>
+
+  <div class="event">
+    <h3>Closer Than This by Jimin</h3>
+    <a href="https://www.youtube.com/watch?v=video_link_here" target="_blank">
+      <img src="images/closer-than-this.jpg" alt="Closer Than This">
+    </a>
+    <p>A touching farewell letter to ARMY from Jimin—raw, beautiful, and closer than ever.</p>
+  </div>
+
+  <div class="event">
+    <h3>Wherever u r by V</h3>
+    <a href="https://www.youtube.com/watch?v=video_link_here" target="_blank">
+      <img src="images/wherever-you-are.jpg" alt="Wherever You Are">
+    </a>
+    <p>V’s soulful promise of presence, even from afar. A warm hug in musical form.</p>
+  </div>
+
+  <div class="event">
+    <h3>Military Enlistment: RM, V, Jimin, Jungkook</h3>
+    <img src="images/military-2023.jpg" alt="Military 2023">
+    <p>The final four quietly enlisted, showing strength, unity, and love for ARMY. We’ll wait together.</p>
+  </div>
 </div>
+
 
 <div class="page" id="page7">
   <div class="stickers">
     <img src="images/left-sticker.png" alt="Left Sticker">
     <img src="images/right-sticker.png" alt="Right Sticker">
   </div>
-  <h2>Page 7 Content Title</h2>
-  <img src="images/page7-photo.jpg" alt="Page 7 Photo">
-  <video src="videos/page7-video.mp4" controls></video>
-  <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
+
+  <h2>Jin’s Monthly Messages</h2>
+  <div class="event">
+    <img src="images/jin-monthly-collage.jpg" alt="Jin Monthly Collage" style="width:100%; border-radius: 12px;">
+    <p>Jin never let us feel distant. Each month, he left heartfelt messages and updates during his military service, reminding ARMY that he’s doing well and thinking of us. These moments felt like warm letters from him, straight to our hearts.</p>
+    <!-- Example embedded YouTube video -->
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/jin_video_id" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <h2>J-Hope’s Messages</h2>
+  <div class="event">
+    <img src="images/jhope-messages-collage.jpg" alt="J-Hope Message Collage" style="width:100%; border-radius: 12px;">
+    <p>Even in service, Hobi stayed our sunshine. Whether through handwritten letters, Weverse updates, or touching videos, he made sure ARMY knew he was smiling and staying strong. His warmth and thoughtfulness truly comforted us all.</p>
+    <!-- Optional video embed -->
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/jhope_video_id" frameborder="0" allowfullscreen></iframe>
+  </div>
 </div>
 
 <div class="page" id="page8">
@@ -150,66 +420,273 @@
     <img src="images/left-sticker.png" alt="Left Sticker">
     <img src="images/right-sticker.png" alt="Right Sticker">
   </div>
-  <h2>Page 8 Content Title</h2>
-  <img src="images/page8-photo.jpg" alt="Page 8 Photo">
-  <video src="videos/page8-video.mp4" controls></video>
-  <iframe src="https://open.spotify.com/embed/track/your_track_id_here" allowtransparency="true"></iframe>
+  <h2> 2024 </h2>
+
+  <div class="event">
+    <h3>Hope on the Street</h3>
+    <img src="images/hope-on-the-street.jpg" alt="Hope on the Street">
+    <p>A heartfelt return from J-Hope blending music and dance, connecting ARMY once again to his creative soul.</p>
+    <iframe src="https://open.spotify.com/embed/track/hope_street_spotify_id" allowtransparency="true"></iframe>
+  </div>
+
+  <div class="event">
+    <h3>Friends by V</h3>
+    <img src="images/friends-v.jpg" alt="Friends by V">
+    <p>V’s soothing voice and heartfelt lyrics brought warmth to ARMY all over again with "Friends."</p>
+    <iframe src="https://open.spotify.com/embed/track/friends_v_spotify_id" allowtransparency="true"></iframe>
+  </div>
+
+  <div class="event">
+    <h3>Love Wins All – V & IU</h3>
+    <img src="images/love-wins-all.jpg" alt="Love Wins All">
+    <p>A beautiful duet capturing vulnerability and strength—V and IU’s collaboration touched hearts globally.</p>
+    <iframe src="https://open.spotify.com/embed/track/love_wins_all_spotify_id" allowtransparency="true"></iframe>
+  </div>
+
+  <div class="event">
+    <h3>Right Place Wrong Person – RM</h3>
+    <img src="images/right-place-wrong-person.jpg" alt="Right Place Wrong Person">
+    <p>RM returned with profound reflections in this deeply personal and poetic album.</p>
+    <iframe src="https://open.spotify.com/embed/track/right_place_wrong_person_spotify_id" allowtransparency="true"></iframe>
+  </div>
+
+  <div class="event">
+    <h3>Right People Wrong Place – Documentary</h3>
+    <img src="images/busan-doc.jpg" alt="Busan Film Festival">
+    <p>Premiered at Busan Film Festival, this documentary was a raw and powerful window into RM’s journey.</p>
+    <a href="https://youtube.com/your_doc_link" target="_blank">Watch the Documentary</a>
+  </div>
+
+ <div class="event">
+  <h3>Jimin – "MUSE" (2nd Solo Album)</h3>
+  <img src="images/muse-album-cover.jpg" alt="Jimin Muse Album Cover" class="milestone-img" />
+
+  <p>
+    On <strong>July 19, 2024</strong>, Jimin released his second solo album <strong>"MUSE"</strong>, following the success of <em>FACE</em>. With this album, he shared his journey to find inspiration and identity through love, vulnerability, and artistry.
+  </p>
+
+  <p>
+    "MUSE" features seven tracks, including the pre-release single <em>“Smeraldo Garden Marching Band”</em> feat. Loco, and explores a broader musical spectrum with lush vocals, layered emotions, and Jimin’s trademark elegance.
+  </p>
+
+  <blockquote class="member-message">
+    “This album is a story about the process of finding the source of my inspiration. Thank you for being my muse.” — Jimin
+  </blockquote>
+
+  <a href="https://open.spotify.com/album/0bX6lUo7fLQC1T10i1zD3g" target="_blank" class="spotify-link">
+    🎧 Listen on Spotify
+  </a>
 </div>
 
-<!-- Page 9 -->
+
+  <div class="event">
+    <h3>Jin’s Comeback</h3>
+    <p>After months of waiting, Jin returned to ARMY with warmth, grace, and that familiar laughter we missed so much.</p>
+  </div>
+
+  <div class="event">
+    <h3>Jin’s Hug Event</h3>
+    <img src="images/jin-hug-event.jpg" alt="Jin Hug Event">
+    <p>Jin greeted lucky ARMYs with hugs, smiles, and even tears—it was an emotional reunion that marked a new beginning.</p>
+  </div>
+
+  <div class="event">
+    <h3>Never Let Go – Jungkook</h3>
+   <p>A gift for FESTA 2024, this emotional track reminded ARMY that the bond never fades.</p>
+    <iframe src="https://open.spotify.com/embed/track/never_let_go_spotify_id" allowtransparency="true"></iframe>
+   
+  </div>
+
+  <div class="event">
+    <h3>FESTA 2024</h3>
+    <img src="images/festa-2024.jpg" alt="Festa 2024">
+    <p>Celebrating 11 years of BTS with heartfelt moments and fan love.</p>
+    <a href="https://youtube.com/festa2024video" target="_blank">Watch FESTA 2024</a>
+  </div>
+
+  <div class="event">
+    <h3>Jin at the Olympics</h3>
+    <img src="images/jin-olympics.jpg" alt="Jin Olympics">
+    <p>Jin represented BTS at the 2024 Paris Olympics, proudly waving the ARMY spirit across the world.</p>
+    <a href="https://youtube.com/jin_olympics" target="_blank">Watch the Moment</a>
+  </div>
+
+  <div class="event">
+    <h3>“Are You Sure” Moment</h3>
+    <img src="images/are-you-sure.jpg" alt="Are You Sure">
+    <p>A funny and iconic fan moment that became a trend across ARMY and BTS!</p>
+  </div>
+
+  <div class="event">
+    <h3>Run Jin</h3>
+    <img src="images/run-jin.jpg" alt="Run Jin">
+    <p>From military to medals—Run Jin captured his energy and ARMY’s admiration worldwide.</p>
+  </div>
+
+  <div class="event">
+    <h3>J-Hope Comeback</h3>
+    <img src="images/hobi-comeback.jpg" alt="Hobi Comeback">
+    <p>Hobi returned with fresh inspiration, vibrant energy, and new music that shook the charts once again.</p>
+  </div>
+
+<div class="event">
+  <h3>J-Hope at KBO</h3>
+  <p>J-Hope threw the ceremonial first pitch at a KBO game, dazzling the crowd with his energy and charm!</p>
+  <a href="https://youtube.com/jhope_kbo_video" target="_blank">Watch the KBO Pitch</a>
+</div>
+
+
+  <div class="event">
+    <h3>Happy – Album</h3>
+    <img src="images/happy-album.jpg" alt="Happy Album">
+    <p>An uplifting and nostalgic project for fans, celebrating joy and connection.</p>
+    <iframe src="https://open.spotify.com/embed/track/happy_album_spotify_id" allowtransparency="true"></iframe>
+  </div>
+
+  <div class="event">
+    <h3>Happy on the Stage</h3>
+    <img src="images/happy-stage.jpg" alt="Happy on Stage">
+    <p>A live celebration of the “Happy” album, filled with cheers and love from ARMY.</p>
+    <a href="https://youtube.com/happy_stage_video" target="_blank">Watch Performance</a>
+  </div>
+
+  <div class="event">
+    <h3>Jungkook’s Surprise Military Live</h3>
+    <p>ARMYs were shocked and thrilled when Jungkook appeared live—one of the most precious moments during his service.</p>
+    <a href="https://youtube.com/jungkook_military_live" target="_blank">Watch the Surprise Live</a>
+  </div>
+
+  <div class="event">
+    <h3>Winter Ahead – V</h3>
+    <img src="images/winter-ahead-v.jpg" alt="Winter Ahead V">
+    <p>A soft, introspective track that wrapped fans in comfort during chilly months.</p>
+    <iframe src="https://open.spotify.com/embed/track/winter_ahead_spotify_id" allowtransparency="true"></iframe>
+  </div>
+
+  <div class="event">
+    <h3>White Christmas – V</h3>
+    <img src="images/white-christmas-v.jpg" alt="White Christmas V">
+    <p>V’s take on the classic carol was nostalgic, magical, and deeply emotional.</p>
+    <iframe src="https://open.spotify.com/embed/track/white_christmas_spotify_id" allowtransparency="true"></iframe>
+  </div>
+
+ 
 <div class="page" id="page9">
+  <h2>Special Comebacks and Moments</h2>
+
+  <div class="event">
+    <h3>LV Bag by J-Hope</h3>
+    <p>J-Hope surprised fans with the song "LV Bag"—a rhythmic and stylish track!</p>
+    <iframe src="https://open.spotify.com/embed/track/your_lvbag_track_id" allowtransparency="true"></iframe>
+  </div>
+
+  <div class="event">
+    <h3>Hobi's 12-Hour Long Live</h3>
+    <p>Hobi stayed live for 12 hours, sharing laughs, stories, and moments ARMY will never forget.</p>
+    <img src="images/hobi-12hr-live.jpg" alt="Hobi 12hr Live">
+    <a href="https://youtube.com/your_hobi_12hr_live_link" target="_blank">Watch the Live</a>
+  </div>
+
+  <div class="event">
+    <h3>Sweet Dreams MV by J-Hope</h3>
+    <p>"Sweet Dreams" delivered exactly that—ethereal, dreamy vibes paired with J-Hope's signature flow.</p>
+    <img src="images/sweet-dreams-mv.jpg" alt="Sweet Dreams MV">
+    <iframe src="https://open.spotify.com/embed/track/your_sweet_dreams_track_id" allowtransparency="true"></iframe>
+  </div>
+
+  <div class="event">
+    <h3>Mona Lisa by J-Hope</h3>
+    <p>A timeless track, just like the painting—"Mona Lisa" is J-Hope at his most expressive.</p>
+    <img src="images/mona-lisa.jpg" alt="Mona Lisa">
+    <iframe src="https://open.spotify.com/embed/track/your_mona_lisa_track_id" allowtransparency="true"></iframe>
+  </div>
+
+  <div class="event">
+    <h3>Hope on the Stage</h3>
+    <p>J-Hope brought boundless energy and charisma on stage, turning every moment into a celebration.</p>
+    <img src="images/hope-on-stage.jpg" alt="Hope on the Stage">
+  </div>
+
+  <div class="event">
+    <h3>Jin's Album "Echo"</h3>
+    <p>Jin returned with his heart-touching solo album "Echo"—a beautiful reflection of his journey.</p>
+    <img src="images/echo-album.jpg" alt="Echo Album">
+    <iframe src="https://open.spotify.com/embed/album/your_echo_album_id" allowtransparency="true"></iframe>
+  </div>
+
+  <div class="event">
+    <h3>Run Seokjin Tour</h3>
+    <p>“Run Seokjin” was filled with joy, games, and Jin’s charming presence—just what ARMY needed.</p>
+    <img src="images/run-seokjin-tour.jpg" alt="Run Seokjin Tour">
+  </div>
+</div>
+ 
+
+<!-- Page 10 -->
+<div class="page" id="page10">
   <h2>Thank You Message</h2>
   <img src="images/message.jpg" alt="Message Image">
 </div>
 
-<!-- Page 10 -->
-<div class="page" id="page10">
+<!-- Page 11 -->
+<div class="page" id="page11">
   <h2>The End</h2>
   <img src="images/ending.jpg" alt="Ending Image">
+</div>
 </div>
 
 <!-- Navigation -->
 <div class="nav-buttons">
+  <div id="page-indicator">Page <span id="current-page">1</span> of <span id="total-pages">11</span></div>
   <button onclick="prevPage()">Previous</button>
   <button onclick="nextPage()">Next</button>
 </div>
 
 <script>
+  // PAGE NAVIGATION SYSTEM
   let currentPage = 1;
-  const totalPages = 10;
+  const totalPages = 11;
+  let scrollTimer;
 
   function showPage(pageNumber) {
-    document.querySelectorAll('.page').forEach((page, index) => {
+    // Validate page number
+    pageNumber = Math.max(1, Math.min(pageNumber, totalPages));
+    
+    // Update active page
+    document.querySelectorAll('.page').forEach(page => {
       page.classList.remove('active');
-      if (index + 1 === pageNumber) {
-        page.classList.add('active');
-      }
     });
+    document.getElementById(`page${pageNumber}`).classList.add('active');
+    
+    // Update UI
+    currentPage = pageNumber;
+    document.getElementById('current-page').textContent = currentPage;
+    window.scrollTo(0, 0);
   }
 
-  function nextPage() {
-    if (currentPage < totalPages) {
-      currentPage++;
-      showPage(currentPage);
-    }
-  }
+  function nextPage() { showPage(currentPage + 1); }
+  function prevPage() { showPage(currentPage - 1); }
 
-  function prevPage() {
-    if (currentPage > 1) {
-      currentPage--;
-      showPage(currentPage);
-    }
-  }
+  // Auto-hide on scroll
+  document.addEventListener('scroll', () => {
+    document.body.classList.add('scrolling');
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      document.body.classList.remove('scrolling');
+    }, 1500);
+  });
 
-  // Show first page on load
-  showPage(currentPage);
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    showPage(1);
+    document.getElementById('total-pages').textContent = totalPages;
+    
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextPage();
+      if (e.key === 'ArrowLeft') prevPage();
+    });
+  });
 </script>
-
 </body>
 </html>
-
-
-
-
-  
-
