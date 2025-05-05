@@ -121,42 +121,50 @@
     font-size: 1.1rem;
   }
 
+  /* ===== STICKER SYSTEM ===== */
   .stickers {
     display: flex;
     justify-content: space-between;
-    margin: 20px 0;
+    margin: 30px 0;
+    padding: 0 5%;
+    position: relative;
   }
 
   .stickers img {
-    width: 80px;
-  }
-
-  img {
-    max-width: 100%;
+    width: clamp(60px, 8vw, 100px); /* Responsive sizing */
     height: auto;
-    display: block;
-    margin: 0 auto;
+    transition: transform 0.3s ease;
+    z-index: 10;
   }
 
+  /* Hover effects (desktop only) */
+  @media (hover: hover) {
+    .stickers img:hover {
+      transform: scale(1.15) rotate(5deg);
+    }
+  }
+
+  /* Mobile-specific adjustments */
   @media (max-width: 768px) {
-    .event {
-      width: 95%;
-      padding: 1rem;
-    }
-
-    .nav-buttons button {
-      padding: 10px 20px;
-      font-size: 1rem;
-    }
-
     .stickers {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
+      min-height: 80px; /* Prevent layout shift */
     }
+    
+    .stickers img:first-child {
+      position: absolute;
+      left: 5%;
+    }
+    
+    .stickers img:last-child {
+      position: absolute;
+      right: 5%;
+    }
+  }
 
-    .stickers img {
-      width: 60px;
+  /* Large desktop enhancement */
+  @media (min-width: 1600px) {
+    .stickers {
+      padding: 0 10%;
     }
   }
 </style>
@@ -204,6 +212,7 @@
 
   <!-- 2. BTS FESTA Dinner -->
   <h2>BTS FESTA Dinner 2022</h2>
+   <a href="https://www.youtube.com/watch?v=kXpOEzNZ8hQ" target="_blank">Watch 'BTS Festa Dinner'</a>
   <img src="images/festa-dinner.jpg" alt="FESTA Dinner">
   <p class="event">During this emotional dinner, the members opened up about their individual paths. It was raw, honest, and full of love.</p>
 
